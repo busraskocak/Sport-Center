@@ -18,6 +18,22 @@ weight.addEventListener("input", () => {
   }
 })
 
+const imgBox = document.querySelectorAll(".img-box");
+const trainerFlag = document.querySelectorAll(".trainer-flag");
+const trainerName = document.querySelectorAll(".trainer-name");
+
+for(let i = 0; i < imgBox.length; i++) {
+  imgBox[i].addEventListener ("mouseover", () => {
+    trainerFlag[i].classList.remove("hidden");
+    trainerName[i].classList.remove("hidden");
+  })
+  imgBox[i].addEventListener ("mouseout", () => {
+    trainerFlag[i].classList.add("hidden");
+    trainerName[i].classList.add("hidden");
+  })
+}
+
+
 const classes = [
     {
       id: 1,
@@ -98,16 +114,16 @@ const classes = [
   function showMenu(e, classesContent) {
     let div = document.createElement("div");
     div.classList.add("content-click");
-    div.innerHTML = `  <h2>Why are your ${e.category}?</h2>
+    div.innerHTML = `  <h3>Why are your ${e.category}?</h3>
       <p>${e.description}</p>
-      <h2>When comes ${e.category} Your Time.</h2>
+      <h3>When comes ${e.category} Your Time.</h3>
       <p>${e.time[0]}</p>
       <p>${e.time[1]}</p>
       <p>${e.time[2]}</p>
   
       `;
     let img = document.createElement("img");
-    img.classList.add("img-yoga");
+    img.classList.add("class-img");
     img.src = `${e.img}`;
     img.alt = `${e.category}`;
     classesContent.append(div);
@@ -115,7 +131,31 @@ const classes = [
   }
   
 
+  const navbar = document.querySelector(".navbar");
+  const navContainer = document.querySelector(".header-container");
+  const containerTop = document.querySelector(".container-text");
+  
+  document.addEventListener("scroll", () => {
+    if(window.pageYOffset != 0) {
+      navContainer.classList.add("header-container");
+      containerTop.style.paddingTop = "72px";
+    } else {
+      navContainer.classList.remove("header-container");
+      containerTop.style.paddingTop = "144px";
+    }
+  })
 
 
 
+  document.addEventListener("DOMContentLoaded", function() {
+    var menuToggle = document.getElementById("menu-toggle");
+    menuToggle.addEventListener("change", function() {
+      var nav = document.querySelector(".nav");
+      if (menuToggle.checked) {
+        nav.style.display = "block";
+      } else {
+        nav.style.display = "none";
+      }
+    });
+  });
   
