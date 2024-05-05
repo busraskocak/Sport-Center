@@ -10,4 +10,4 @@ Navbar links are linked to relevant sections via their "id".
 BMI calculation is performed based on user input for weight and height. As weight and height inputs change, the position of a triangle dynamically updates.
 The "Google Map" is not a static image but an interactive map.
 
-web page link: https://app.netlify.com/sites/precious-malasada-22c182/overview
+web page link: https://sportcenter-busrakocak.netlify.app/
